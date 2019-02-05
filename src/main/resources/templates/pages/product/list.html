@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout"
+	th:with="title='Product List'">
+
+<th:block layout:fragment="content">
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<!-- Breadcrumbs-->
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+				<li class="breadcrumb-item active">Product List</li>
+			</ol>
+			<div class="card mb-3">
+				<div class="card-header">
+					<i class="fa fa-table"></i>Products List
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered" id="dataTable">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Name</th>
+									<th>Url</th>
+									<th>Report Fraud Url</th>
+									<th>Show Validation</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>ID</th>
+									<th>Name</th>
+									<th>Url</th>
+									<th>Report Fraud Url</th>
+									<th>Show Validation</th>
+								</tr>
+							</tfoot>
+							<tbody>
+								<tr th:each="${product : products}">
+									<td th:text="${product.id}"></td>
+									<td th:text="${product.name}"></td>
+									<td th:text="${product.productUrl}"></td>
+									<td th:text="${product.reportFraudUrl}"></td>
+									<td th:text="${product.showValidation}"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</th:block>
+</html>
